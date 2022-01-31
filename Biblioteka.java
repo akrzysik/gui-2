@@ -112,6 +112,22 @@ public class Biblioteka extends JFrame implements Serializable {
             }		  
         });
         
+        // Pozycja menu: Wyswietl wypozyczenia czytelnika
+        JMenuItem lendsByReaderMenuItem = new JMenuItem("Wyświetl wypożyczenia czytelnika");
+        lendsByReaderMenuItem.setMnemonic(KeyEvent.VK_R);
+        lendsByReaderMenuItem.setToolTipText("Wypożyczenia czytelnika");
+        // Podpiecie akcji pod "Wyswietl wypozyczenia czytelnika"
+        lendsByReaderMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+            	textArea.setText("");
+              SelectReaderDialog ad = new SelectReaderDialog(bib);
+                ad.setVisible(true);
+            	//for (Wypozyczenie k: //wypozyczenia) {  
+            	//	textArea.append(k+"\n");
+            	//}		
+            }		  
+        });
+        
         // Pozycja menu: Dodaj nowego czytelnika
         JMenuItem newReaderMenuItem = new JMenuItem("Dodaj nowego czytelnika");
         newReaderMenuItem.setMnemonic(KeyEvent.VK_N);
@@ -181,6 +197,7 @@ public class Biblioteka extends JFrame implements Serializable {
         lib.add(usersMenuItem);        
         lib.add(booksMenuItem);
         lib.add(lendsMenuItem);
+        lib.add(lendsByReaderMenuItem);
         lib.addSeparator();
         lib.add(eMenuItem);
 
@@ -250,6 +267,13 @@ public class Biblioteka extends JFrame implements Serializable {
 	 * @return the wypozyczenia
 	 */
 	public ArrayList<Wypozyczenie> getWypozyczenia() {
+		return wypozyczenia;
+	}
+
+  /**
+	 * @return wypozyczenia
+	 */
+	public ArrayList<Wypozyczenie> getWypozyczeniaByCzytelnik(Czytelnik c) {
 		return wypozyczenia;
 	}
 
