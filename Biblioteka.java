@@ -123,6 +123,19 @@ public class Biblioteka extends JFrame implements Serializable {
             }
         });
         
+
+// Pozycja menu: Dodaj nową książkę
+        JMenuItem newBookMenuItem = new JMenuItem("Dodaj nową książkę");
+        newBookMenuItem.setMnemonic(KeyEvent.VK_D);
+        // Podpiecie akcji pod "Dodaj książkę"
+        newBookMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                BookDialog ad = new BookDialog(bib);
+                ad.setVisible(true);
+            }
+        });
+        
+
         // Pozycja menu: Wypozycz ksiazke czytelnikowi
         JMenuItem lendBookMenuItem = new JMenuItem("Wypozycz ksiazke czytelnikowi");
         lendBookMenuItem.setMnemonic(KeyEvent.VK_W);
@@ -138,6 +151,8 @@ public class Biblioteka extends JFrame implements Serializable {
         lib.add(lendBookMenuItem);
         lib.addSeparator();
         lib.add(newReaderMenuItem);
+        lib.addSeparator();
+        lib.add(newBookMenuItem);
         lib.addSeparator();
         lib.add(usersMenuItem);        
         lib.add(booksMenuItem);
