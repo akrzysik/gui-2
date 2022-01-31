@@ -136,6 +136,17 @@ public class Biblioteka extends JFrame implements Serializable {
         });
         
 
+// Pozycja menu: Usuń książkę
+        JMenuItem deleteBookMenuItem = new JMenuItem("Usuń książkę");
+        deleteBookMenuItem.setMnemonic(KeyEvent.VK_U);
+        // Podpiecie akcji pod "Usun książkę"
+        deleteBookMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                DeleteBookDialog ad = new DeleteBookDialog(bib);
+                ad.setVisible(true);
+            }
+        });
+        
         // Pozycja menu: Wypozycz ksiazke czytelnikowi
         JMenuItem lendBookMenuItem = new JMenuItem("Wypozycz ksiazke czytelnikowi");
         lendBookMenuItem.setMnemonic(KeyEvent.VK_W);
@@ -151,8 +162,9 @@ public class Biblioteka extends JFrame implements Serializable {
         lib.add(lendBookMenuItem);
         lib.addSeparator();
         lib.add(newReaderMenuItem);
-        lib.addSeparator();
         lib.add(newBookMenuItem);
+        lib.addSeparator();
+        lib.add(deleteBookMenuItem);
         lib.addSeparator();
         lib.add(usersMenuItem);        
         lib.add(booksMenuItem);
