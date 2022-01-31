@@ -13,7 +13,7 @@ public class Main {
                 bib.dodajCzytelnika(new Czytelnik("Wojciech", "Kaminski", bib.kolejny_numer_czytelnika()));
                 bib.dodajKsiazke(new Ksiazka("D. Thomas", "Programming Ruby 1.9", "978-1-934356-08-1", 5));
                 bib.dodajKsiazke(new Ksiazka("J. Loeliger", "Version Control with Git", "978-0-596-52012-0", 2));
-                bib.dodajKsiazke(new Ksiazka("J.E.F. Friedl", "Matering Regular Expressions", "978-0-596-52812-6", 1));
+                bib.dodajKsiazke(new Ksiazka("J.E.F. Friedl", "Mastering Regular Expressions", "978-0-596-52812-6", 1));
                 bib.setVisible(true);
             }
         });
