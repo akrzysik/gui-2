@@ -158,8 +158,20 @@ public class Biblioteka extends JFrame implements Serializable {
             }
         });
 
+        // Pozycja menu: Zwroc ksiazke
+        JMenuItem returnBookMenuItem = new JMenuItem("Zwróć ksiązkę");
+        lendBookMenuItem.setMnemonic(KeyEvent.VK_R);
+        // Podpiecie akcji pod "Zwroc ksiazke"
+        returnBookMenuItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                ReturnDialog ad = new ReturnDialog(bib);
+                ad.setVisible(true);
+            }
+        });
+
         // Dodanie pozycji do menu "Biblioteka"
         lib.add(lendBookMenuItem);
+        lib.add(returnBookMenuItem);
         lib.addSeparator();
         lib.add(newReaderMenuItem);
         lib.add(newBookMenuItem);
