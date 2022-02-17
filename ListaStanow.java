@@ -16,17 +16,19 @@ public class ListaStanow  {
 	}
 
   public void change(Stan stan) {
-    if (this.indeks < this.stany.size()) {
+    if (this.indeks == this.stany.size()) {
+      this.stany.add(stan);
+    }
+    else 
+    {
       // zresetuj dalsze akcje "ponow"
       // jezeli nowa edycja po cofnięciu
       ArrayList<Stan> nowa = new ArrayList<Stan>();
       for (int i = 0; i <= this.indeks; i++) {
         nowa.add(this.stany.get(i));
-        nowa.add(stan);
       }
+      nowa.add(stan);
       this.stany = nowa;
-    } else {
-      this.stany.add(stan);
     }
     this.indeks++;
     

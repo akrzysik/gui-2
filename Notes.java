@@ -92,8 +92,8 @@ public class Notes extends JFrame implements Serializable {
             public void actionPerformed(ActionEvent event) {
               Stan nowy = new Stan(textArea.getText());
             	stany.change(nowy);
-               AboutDialog ad = new AboutDialog(textArea.getText());
-                ad.setVisible(true);
+                AboutDialog ad = new AboutDialog("stan zapisany");
+                 ad.setVisible(true);
             }
         });
 
