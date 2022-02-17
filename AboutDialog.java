@@ -8,30 +8,40 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 
 // Okno "About"
 class AboutDialog extends JDialog {
-    
-	private static final long serialVersionUID = 8169178928427118906L;
 
-	public AboutDialog() {
-
-        initUI();
+	public AboutDialog(String tekst) {
+        initUI(tekst);
     }
 
-    public final void initUI() {
+    public final void initUI(String tekst) {
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         add(Box.createRigidArea(new Dimension(0, 10)));
 
-        JLabel name = new JLabel("Biblioteka, 1.00");
+        JLabel name = new JLabel("Stany");
         name.setFont(new Font("Serif", Font.BOLD, 12));
         name.setAlignmentX(0.5f);
         add(name);
 
         add(Box.createRigidArea(new Dimension(0, 50)));
+  
 
+        final JTextArea textArea = new JTextArea(tekst);
+        textArea.setPreferredSize(new Dimension(550, 600));
+        textArea.setEditable(false);
+        
+        JScrollPane scroll = new JScrollPane (textArea, 
+   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+
+        // Dodanie pola tekstowego 
+        add(scroll);
         JButton close = new JButton("Zamknij");
 
         // Akcja podpieta pod przycisk "Zamknij"
@@ -46,7 +56,7 @@ class AboutDialog extends JDialog {
 
         setModalityType(ModalityType.APPLICATION_MODAL);
 
-        setTitle("O programie");
+        setTitle("Lista stanów");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setSize(300, 200);
