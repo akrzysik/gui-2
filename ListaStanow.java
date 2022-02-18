@@ -31,8 +31,6 @@ public class ListaStanow  {
       this.stany = nowa;
     }
     this.indeks++;
-    
-    
   }
 
   public String undo() {
@@ -43,21 +41,17 @@ public class ListaStanow  {
   }
 
   public String redo() {
-    if (this.indeks < this.stany.size()) {
+    if (this.indeks < this.stany.size() - 1) {
       this.indeks++;
     }
     return this.stany.get(this.indeks).getTekst();
   }
 
-	public String eksport() {
-		return this.toString();
-	}
-
 	@Override
 	public String toString() {
     String sum = "";
     for (Stan s: this.stany) {  
-      sum += s.toString() + "---\n";
+      sum += s.toString() + "\n";
     }	
     return sum;
 	}

@@ -14,28 +14,20 @@ import javax.swing.SwingUtilities;
 
 
 
-// Klasa Biblioteka
-public class Notes extends JFrame implements Serializable {
-
-	/**
-	 * 
-	 */
-	
+// Klasa Notes
+public class Notes extends JFrame {
 	// Lista stanów
 	ListaStanow stany;
-	Stan stan;
 	String tekst;
 	
 	/**
 	 * Konstruktor
 	 */
 	public Notes() {
-		String init = "Jakiś przykładowy \n tekst";
-    
+		String init = "Lorem ipsum dolor sit amet";
     Stan stan = new Stan(init);
 
     this.stany = new ListaStanow(stan);
-
     this.tekst = this.stany.toString();
 		
 		initUI(this);
@@ -59,8 +51,7 @@ public class Notes extends JFrame implements Serializable {
         pack();
         // Pasek menu
         JMenuBar menubar = new JMenuBar();
-        // Menu Edycja
-        JMenu lib = new JMenu("Edycja");
+        
         // Pozycja menu: Cofnij
         JMenuItem cMenuItem = new JMenuItem("Cofnij");
         cMenuItem.setMnemonic(KeyEvent.VK_C);
@@ -92,8 +83,8 @@ public class Notes extends JFrame implements Serializable {
             public void actionPerformed(ActionEvent event) {
               Stan nowy = new Stan(textArea.getText());
             	stany.change(nowy);
-                AboutDialog ad = new AboutDialog("stan zapisany");
-                 ad.setVisible(true);
+              AboutDialog ad = new AboutDialog("stan zapisany");
+              ad.setVisible(true);
             }
         });
 
